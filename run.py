@@ -1,5 +1,4 @@
-from app.config import PORT
-from app import app, context
+from app import app
 
 
 if __name__ == "__main__":
