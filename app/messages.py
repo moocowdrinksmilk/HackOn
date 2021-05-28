@@ -1,5 +1,5 @@
 bot_welcome = """
-Welcome to JonBot. 
+Welcome to TryveBot. 
 """
 
 bot_temp = """
