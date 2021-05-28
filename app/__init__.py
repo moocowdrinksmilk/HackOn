@@ -22,7 +22,7 @@ def index():
         return "webhook setup failed"
 
 
-@app.route('/' + TOKEN, methods=['POST'])
+@app.route('/{}'.format(TOKEN), methods=['POST'])
 def respond():
     update = telegram.Update.de_json(request.get_json(force=True), bot)
 
