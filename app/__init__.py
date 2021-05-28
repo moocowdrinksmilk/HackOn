@@ -15,7 +15,7 @@ def setWebHook():
 
 @app.route('/')
 def index():
-    s = setWebHook
+    s = setWebHook()
     if s:
         return "webhook setup sucessful"
     else:
