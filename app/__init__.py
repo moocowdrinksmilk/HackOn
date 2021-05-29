@@ -5,7 +5,7 @@ from app.config import TOKEN, URL
 
 global bot
 
-key  = "1801864743:AAHKi8TVKEgLGp-D7ufBrAElf03sHra18EY"
+key  = TOKEN
 bot = telegram.Bot(token=key)
 app = Flask(__name__)
 
@@ -29,8 +29,7 @@ def index():
 
 @app.route("/setwebhook/")
 def setwebhook():
-    url = "https://6f70a18620a0.ngrok.io/"
-    s = requests.get("https://api.telegram.org/bot{}/setWebhook?url={}".format(key,url))
+    s = requests.get("https://api.telegram.org/bot{}/setWebhook?url={}".format(TOKEN,URL))
   
     if s:
         return "Success"
