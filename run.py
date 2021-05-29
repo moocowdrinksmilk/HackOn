@@ -1,7 +1,4 @@
-from app import app, setWebHook
+import app from app
 
-from app import routes #ensures that routes are loaded
-
-if __name__ == "__main__":
-    setWebHook()
-    app.run(threaded=True)
+if __name__ == '__main__':
+   app.run()

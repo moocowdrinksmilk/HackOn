@@ -24,3 +24,8 @@ venv.bak/
 
 # vscode
 .vscode/
+
+**/.DS_Store
+
+# config
+app/config.py

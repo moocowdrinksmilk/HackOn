@@ -28,3 +28,14 @@ def respond():
         bot.sendMessage(chat_id=chat_id, text=messages.bot_temp, reply_to_message_id=msg_id)
 
     return 'wtv, doesnt matter'
+
+@app.route("/setwebhook/")
+def setwebhook():
+    url = "https://d23c86e9a2de.ngrok.io"
+    key = "1886467979:AAErWUqnCE-abp7SviRn3ybp_bEJ7M6As44"
+    s = requests.get("https://api.telegram.org/bot{}/setWebhook?url={}".format(key,url))
+  
+    if s:
+        return "Success"
+    else:
+        return "fail"
