@@ -17,3 +17,20 @@ To view terminal: type this into your terminal (Heroku CLI needs to be installed
 ``` bash
 heroku logs --tail
 ```
+
+## Create local environment and install dependencies
+Run virtual environment 
+```bash
+source venv/bin/activate
+```
+Install requirements.txt
+```bash
+pip install -r requirements.txt
+```
+
+## Export environment variables and run flask app
+```bash
+$ export FLASK_ENV=development
+$ export FLASK_APP=run.py
+$ flask run
+```
