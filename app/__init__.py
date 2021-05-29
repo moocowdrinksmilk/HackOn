@@ -5,15 +5,9 @@ import telegram
 
 global bot
 
-key  = "1889965332:AAFwpF2CxgKJnBkSeilQn5R6dzfvPyVMTi0"
+key  = "1801864743:AAHKi8TVKEgLGp-D7ufBrAElf03sHra18EY"
 bot = telegram.Bot(token=key)
 app = Flask(__name__)
-
-
-# def setWebHook():
-#     # bot.setWebhook('{URL}{HOOK}'.format(URL="https://d23c86e9a2de.ngrok.io", HOOK=TOKEN))
-#     print("Webhook setup successful")
-
 
 from flask import Flask,request
 import requests
@@ -31,9 +25,10 @@ def index():
         # msgtext = resp["message"]["text"]
         # sendername = resp["message"]["from"]["first_name"]
         chatid = resp["message"]["chat"]["id"]
-        print(resp)
         # return resp
-        sendmessage(chatid)
+        bot.sendMessage(chat_id=chatid, text='Welcum!')
+        print
+        print(resp)
     return "suck my cock"
 
 
@@ -42,7 +37,7 @@ def sendmessage(chatid):
 
 @app.route("/setwebhook/")
 def setwebhook():
-    url = "https://118e75ecb91b.ngrok.io"
+    url = "https://6f70a18620a0.ngrok.io/"
     s = requests.get("https://api.telegram.org/bot{}/setWebhook?url={}".format(key,url))
   
     if s:
