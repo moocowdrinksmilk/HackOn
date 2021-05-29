@@ -1,5 +1,6 @@
+from app.models import User
 from flask import request
-from app import app, bot
+from app import app, bot, db
 import telegram
 
 from app.config import TOKEN
@@ -28,3 +29,28 @@ def respond():
         bot.sendMessage(chat_id=chat_id, text=messages.bot_temp, reply_to_message_id=msg_id)
 
     return 'wtv, doesnt matter'
+
+
+@app.route('/testdatabase', methods=['GET'])
+def test_database():
+    # this test is to try create an user, add to database and return the user
+    print(1)
+    user = User(chat_id="test_chat_id_123")
+    print(2)
+    user_id = user.id
+    try:
+        db.session.add(user)
+        db.session.commit()
+    except:
+        return 'Error adding user, id:' + user_id
+
+    print("user added successfully, id: " + user_id)
+
+    user_from_db = "null"
+
+    try:
+        user_from_db = User.query.get(user_id)
+    except:
+        return "Error querying database"
+
+    return user_from_db
